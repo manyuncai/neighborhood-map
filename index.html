@@ -5,17 +5,23 @@
     <title>Cat Clicker</title>
 </head>
 <body>
-    <ul id="cat-list"></ul>
-    <div id="cat">
+    <ul id="location-list" data-bind="foreach: locationList">
+      <li data-bind= "text: name, click: $parent.setLocation"> </li>
+    </ul>
+    <div id="location" data-bind="with:currentLocation">
 
         <h2 data-bind="text: name"></h2>
-        <h3 data-bind="text: levels"> </h3>
-        <div data-bind="text: clickCount"></div>
-        <img src="" alt="cute cat" data-bind="click: incrementCounter,
-        attr:{src: imgSrc}">
-
+        <h3 data-bind="text: reservation"> </h3>
+        <div data-bind="text: city"></div>
+        <div data-bind="text: location"></div>
+        <div data-bind="text: date"></div>
     </div>
+    <div id="map"></div>
+
     <script src="js/lib/knockout-3.2.0.js"></script>
     <script src="js/app.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDG6VRGeFDihTpzRslpphO7ZLyCjYF1iSE&callback=initMap">
+    </script>
 </body>
 </html>
